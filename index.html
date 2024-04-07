@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Worst Website Ever</title>
+  <style>
+    /* Change the background color of the body to neon green */
+    body {
+      background-color: #00ff00;
+      margin: 0; /* Remove default margin */
+      padding: 0; /* Remove default padding */
+      font-size: 60px; /* Apply a huge font size */
+      font-family: Papyrus, fantasy; /* Apply Papyrus font family to all text */
+      overflow: auto; /* Enable scrolling */
+    }
+
+    /* Change the text color to bright red */
+    .container h2 {
+      color: #ff0000;
+    }
+
+    /* Add a border to all elements */
+    * {
+      border: 10px solid purple;
+    }
+
+    /* Make buttons spin */
+    button {
+      animation: spinButton 3s infinite linear;
+    }
+
+    @keyframes spinButton {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* Apply Comic Sans font to all text */
+    body {
+      font-family: Comic Sans MS, cursive;
+    }
+
+    /* Add a background image of a tiled GIF of dancing babies */
+    body {
+      background-image: url('https://i.giphy.com/BVXc0b6KPvDAQ.webp');
+      background-repeat: repeat;
+    }
+
+    /* Make all images rotate */
+    img {
+      animation: rotateImage 5s infinite linear;
+    }
+
+    @keyframes rotateImage {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* Add a marquee to the header */
+    .container h1 {
+      animation: marqueeHeader 10s infinite linear;
+    }
+
+    @keyframes marqueeHeader {
+      from {
+        transform: translateX(0%);
+      }
+      to {
+        transform: translateX(100%);
+      }
+    }
+
+    /* Set cursor for all buttons to the pointing finger GIF */
+    button {
+      cursor: url('https://badhtml.com/img/pointing-finger.gif'), auto;
+    }
+
+    /* Style the GIF */
+    .hand-gif {
+      position: absolute;
+    }
+
+    .smile-gif {
+      width: 200px; /* Adjust width as needed */
+      position: absolute;
+      right: 10px; /* Adjust distance from right edge */
+      top: 50%; /* Center vertically */
+      transform: translateY(-50%);
+    }
+
+    /* Style the face GIF */
+    .face-gif {
+      position: absolute;
+      width: 200px; /* Adjust width as needed */
+      top: 10px; /* Adjust distance from top */
+      left: 10px; /* Adjust distance from left */
+    }
+
+    /* Style the fake plugin not found error */
+    .plugin-not-found {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 999; /* Ensure it's above other content */
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome to the Worst Website Ever</h1>
+    <h2>This website will hurt your eyes!</h2>
+    <p>Inspiration: <a href="https://badhtml.com/">badhtml.com</a></p>
+    <button>Button 1</button>
+    <button>Button 2</button>
+    <button>Button 3</button>
+  </div>
+  <!-- Multiple GIFs for hands -->
+  <img class="hand-gif" src="https://badhtml.com/img/handr.gif" alt="Hand GIF">
+  <img class="hand-gif" src="https://badhtml.com/img/handr.gif" alt="Hand GIF">
+  <img class="hand-gif" src="https://badhtml.com/img/handr.gif" alt="Hand GIF">
+  <!-- GIFs -->
+  <img class="smile-gif" src="https://media.tenor.com/Vjvbv9-elfsAAAAj/smile-epic.gif" alt="Smiling face GIF">
+  <img class="face-gif" src="https://badhtml.com/img/jseyes.gif" alt="Face GIF">
+  <!-- Plugin Not Found image -->
+  <img class="plugin-not-found" src="https://badhtml.com/img/notsupported.png" alt="Plugin Not Found">
+  <!-- JavaScript to randomly position the hand GIF -->
+  <script>
+    // Function to get a random number between min and max (inclusive)
+    function getRandomNumber(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    // Function to set random position for the hand GIF
+    function setRandomPosition(element) {
+      var screenWidth = window.innerWidth;
+      var screenHeight = window.innerHeight;
+
+      var randomX = getRandomNumber(0, screenWidth - element.width);
+      var randomY = getRandomNumber(0, screenHeight - element.height);
+
+      element.style.left = randomX + 'px';
+      element.style.top = randomY + 'px';
+    }
+
+    // Call the function to set the initial position for each hand GIF
+    var handGifs = document.querySelectorAll('.hand-gif');
+    handGifs.forEach(function(hand) {
+      setRandomPosition(hand);
+    });
+
+    // Add event listener to resize window and reposition hand GIFs
+    window.addEventListener('resize', function() {
+      handGifs.forEach(function(hand) {
+        setRandomPosition(hand);
+      });
+    });
+  </script>
+</body>
+</html>
